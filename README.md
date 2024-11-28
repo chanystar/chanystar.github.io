@@ -45,6 +45,12 @@ npm install gh-pages
 npm run deploy
 ```
 
+## vite
+- https://ko.vite.dev/guide/
+
+### Why Vite
+- https://vite.dev/guide/why.html
+
 ## project
 ### 모바일 청첩장 (react)
 - branch : backup_mobile_wedding_card

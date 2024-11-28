@@ -49,13 +49,7 @@ const IndexPage = () => {
       <audio autoPlay loop>
         <source src={Song} />
       </audio>
-      <Title />
-      <Greeting />
-      <Gallery />
-      <Location />
-      <Quote />
-      <CongratulatoryMoney />
-      <Share />
+      <div>test</div>
       <Footer
         style={{
           background: "#D7CCC8",
