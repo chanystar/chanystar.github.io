@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Card, Button, Typography, message } from "antd";
 
@@ -28,57 +28,29 @@ type Props = {
 };
 
 const SSOPage: React.FC<Props> = ({ onClose }) => {
-  // Google Identity Services (GIS) 버튼 초기화 및 콜백
-  useEffect(() => {
+  // Google OAuth Authorization Code Flow
+  const handleGoogleLogin = () => {
     const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
-    if (!clientId) return;
+    const redirectUri = process.env.REACT_APP_GOOGLE_REDIRECT_URI;
 
-    const script = document.createElement("script");
-    script.src = "https://accounts.google.com/gsi/client";
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
-
-    const handleLoad = () => {
-      // @ts-ignore - window.google injected by GIS script
-      if (!window.google || !window.google.accounts || !window.google.accounts.id) return;
-
-      // @ts-ignore
-      window.google.accounts.id.initialize({
-        client_id: clientId,
-        callback: handleGoogleResponse,
-      });
-
-      // render the button into the container div
-      // @ts-ignore
-      window.google.accounts.id.renderButton(
-        document.getElementById("g_id_signin"),
-        { theme: "outline", size: "large", width: "240" }
-      );
-    };
-
-    script.addEventListener("load", handleLoad);
-    return () => {
-      script.removeEventListener("load", handleLoad);
-      try {
-        document.body.removeChild(script);
-      } catch (e) {}
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const handleGoogleResponse = (response: any) => {
-    // response.credential contains the ID token (JWT)
-    const idToken = response?.credential;
-    if (!idToken) {
-      message.error("Google 로그인 실패");
+    if (!clientId || !redirectUri) {
+      message.error("Google OAuth 설정이 누락되었습니다");
       return;
     }
+
+    const scope = "openid email profile";
+    const responseType = "code";
+    const state = Math.random().toString(36).substring(7);
+
+    // 상태값을 sessionStorage에 저장 (보안)
     try {
-      localStorage.setItem("sso_id_token", idToken);
+      sessionStorage.setItem("oauth_state", state);
     } catch (e) {}
-    message.success("Google 로그인 성공");
-    setTimeout(() => onClose && onClose(), 600);
+
+    const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${encodeURIComponent(clientId)}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=${responseType}&scope=${encodeURIComponent(scope)}&state=${state}`;
+    
+    // Google으로 리다이렉트 (콜백은 Vercel API에서 처리 후 프런트로 반환)
+    window.location.href = authUrl;
   };
 
   const handleMockSignIn = () => {
@@ -101,10 +73,14 @@ const SSOPage: React.FC<Props> = ({ onClose }) => {
         <Title level={3}>SSO 로그인</Title>
         <Paragraph>원하시는 SSO 제공자를 선택해 로그인하세요.</Paragraph>
 
-        <div id="g_id_signin" style={{ display: "flex", justifyContent: "center", marginTop: 12 }} />
+        <div style={{ display: "flex", justifyContent: "center", marginTop: 12 }}>
+          <Button type="primary" size="large" onClick={handleGoogleLogin}>
+            Google로 로그인
+          </Button>
+        </div>
 
         <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 12 }}>
-          <Button type="primary" onClick={() => handleExternalRedirect("github")}>GitHub로 로그인</Button>
+          <Button onClick={() => handleExternalRedirect("github")}>GitHub로 로그인</Button>
         </div>
 
         <div style={{ marginTop: 16 }}>
