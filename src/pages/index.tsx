@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Layout } from "antd";
 import styled from "styled-components";
 import "react-image-gallery/styles/css/image-gallery.css";
@@ -17,6 +17,8 @@ import Song from "../assets/song.mp3";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import SSOPage from "./sso";
+import { Button } from "antd";
 
 const { Footer } = Layout;
 
@@ -27,6 +29,7 @@ const Wrapper = styled.div`
 `;
 
 const IndexPage: React.FC = () => {
+  const [showSSO, setShowSSO] = useState(false);
   useEffect(() => {
     const script = document.createElement("script");
     script.async = true;
@@ -50,7 +53,14 @@ const IndexPage: React.FC = () => {
       <audio autoPlay loop>
         <source src={Song} />
       </audio>
-      <div>test1</div>
+
+      <div style={{ padding: 24, textAlign: "center" }}>
+        <Button type="primary" size="large" onClick={() => setShowSSO(true)}>
+          SSO 로그인
+        </Button>
+      </div>
+
+      {showSSO && <SSOPage onClose={() => setShowSSO(false)} />}
       <Footer
         style={{
           background: "#D7CCC8",
