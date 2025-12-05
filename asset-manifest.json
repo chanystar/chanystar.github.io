@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.5011b619.css",
-    "main.js": "/static/js/main.af7c444d.js",
+    "main.js": "/static/js/main.4e75d98e.js",
     "static/js/453.4f68659e.chunk.js": "/static/js/453.4f68659e.chunk.js",
     "static/media/mom_to_daughter.woff": "/static/media/mom_to_daughter.a0897a3c026f9fca7b50.woff",
     "static/media/mom_to_daughter.woff2": "/static/media/mom_to_daughter.250d46c6deac93d28209.woff2",
@@ -9,11 +9,11 @@
     "static/media/GroovePaper.png": "/static/media/GroovePaper.33326b07913fac2781bb.png",
     "index.html": "/index.html",
     "main.5011b619.css.map": "/static/css/main.5011b619.css.map",
-    "main.af7c444d.js.map": "/static/js/main.af7c444d.js.map",
+    "main.4e75d98e.js.map": "/static/js/main.4e75d98e.js.map",
     "453.4f68659e.chunk.js.map": "/static/js/453.4f68659e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5011b619.css",
-    "static/js/main.af7c444d.js"
+    "static/js/main.4e75d98e.js"
   ]
 }
