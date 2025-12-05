@@ -18,7 +18,6 @@ import Song from "../assets/song.mp3";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-// markup
 const { Footer } = Layout;
 
 const Wrapper = styled.div`
@@ -27,7 +26,7 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
-const IndexPage = () => {
+const IndexPage: React.FC = () => {
   useEffect(() => {
     const script = document.createElement("script");
     script.async = true;
@@ -35,7 +34,8 @@ const IndexPage = () => {
     document.body.appendChild(script);
 
     return () => {
-      // document.body.removeChild();
+      // cleanup if needed
+      // document.body.removeChild(script);
     };
   }, []);
 
@@ -43,13 +43,14 @@ const IndexPage = () => {
     AOS.init({
       duration: 1500,
     });
-  });
+  }, []);
+
   return (
     <Wrapper>
       <audio autoPlay loop>
         <source src={Song} />
       </audio>
-      <div>test</div>
+      <div>test1</div>
       <Footer
         style={{
           background: "#D7CCC8",

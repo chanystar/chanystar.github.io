@@ -10,18 +10,18 @@
     "@types/node": "^16.18.112",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
-    "gh-pages": "^6.1.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4",
     "antd": "^4.20.4",
     "aos": "^2.3.4",
     "babel-plugin-styled-components": "^2.0.7",
+    "gh-pages": "^6.1.1",
+    "react": "^18.3.1",
     "react-copy-to-clipboard": "^5.1.0",
+    "react-dom": "^18.3.1",
     "react-image-gallery": "^1.2.8",
-    "styled-components": "^5.3.5"
+    "react-scripts": "5.0.1",
+    "styled-components": "^5.3.5",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
   },
   "homepage": "https://chanystar.github.io/",
   "scripts": {
@@ -49,5 +49,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/aos": "^3.0.7",
+    "@types/styled-components": "^5.1.36"
   }
 }
