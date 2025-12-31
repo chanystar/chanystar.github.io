@@ -47,11 +47,11 @@ const IndexPage: React.FC = () => {
         <source src={Song} />
       </audio>
 
-      <div style={{ padding: 24, textAlign: "center" }}>
+      {/* <div style={{ padding: 24, textAlign: "center" }}>
         <Button type="primary" size="large" onClick={() => setShowSSO(true)}>
           SSO 로그인
         </Button>
-      </div>
+      </div> */}
 
       {showSSO && <SSOPage onClose={() => setShowSSO(false)} />}
       <Footer
