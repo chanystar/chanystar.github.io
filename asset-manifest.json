@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.9515d0b2.css",
-    "main.js": "/static/js/main.4c8fc06d.js",
+    "main.js": "/static/js/main.fe16d0d2.js",
     "static/js/206.72c08a8b.chunk.js": "/static/js/206.72c08a8b.chunk.js",
     "static/media/mom_to_daughter.woff": "/static/media/mom_to_daughter.a0897a3c026f9fca7b50.woff",
     "static/media/mom_to_daughter.woff2": "/static/media/mom_to_daughter.250d46c6deac93d28209.woff2",
@@ -11,6 +11,6 @@
   },
   "entrypoints": [
     "static/css/main.9515d0b2.css",
-    "static/js/main.4c8fc06d.js"
+    "static/js/main.fe16d0d2.js"
   ]
 }
