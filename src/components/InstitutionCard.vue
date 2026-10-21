@@ -34,7 +34,9 @@ const to = computed(() => ({
   border-radius: var(--radius-m);
   background: var(--c-surface);
   box-shadow: var(--shadow-s);
-  transition: transform 0.15s, box-shadow 0.15s;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
 }
 .card:hover {
   transform: translateY(-2px);

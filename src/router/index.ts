@@ -21,13 +21,35 @@ export const router = createRouter({
     { path: '/compare', name: 'compare', component: Placeholder, meta: { title: '비교' } },
     { path: '/favorites', name: 'favorites', component: Placeholder, meta: { title: '찜한 학교' } },
     { path: '/zone', name: 'zone', component: Placeholder, meta: { title: '통학구역 조회' } },
-    { path: '/region/:sido/:sigungu?', name: 'region', component: Placeholder, meta: { title: '지역별 학교' } },
-    { path: '/school/:id(\\d+)', name: 'school', component: Placeholder, meta: { title: '초등학교 상세' } },
-    { path: '/kindergarten/:id(\\d+)', name: 'kindergarten', component: Placeholder, meta: { title: '유치원 상세' } },
-    { path: '/:pathMatch(.*)*', name: 'not-found', component: Placeholder, meta: { title: '페이지를 찾을 수 없어요' } },
+    {
+      path: '/region/:sido/:sigungu?',
+      name: 'region',
+      component: Placeholder,
+      meta: { title: '지역별 학교' },
+    },
+    {
+      path: '/school/:id(\\d+)',
+      name: 'school',
+      component: Placeholder,
+      meta: { title: '초등학교 상세' },
+    },
+    {
+      path: '/kindergarten/:id(\\d+)',
+      name: 'kindergarten',
+      component: Placeholder,
+      meta: { title: '유치원 상세' },
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: Placeholder,
+      meta: { title: '페이지를 찾을 수 없어요' },
+    },
   ],
 })
 
 router.afterEach((to) => {
-  document.title = to.meta.title ? `${to.meta.title} | ${APP_NAME}` : `${APP_NAME} · 유치원·초등학교 정보`
+  document.title = to.meta.title
+    ? `${to.meta.title} | ${APP_NAME}`
+    : `${APP_NAME} · 유치원·초등학교 정보`
 })

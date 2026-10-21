@@ -148,7 +148,13 @@ defineExpose({ focus: () => input.value?.focus() })
         @input="open = true"
         @keydown="onKeydown"
       />
-      <button v-if="query" type="button" class="search__clear" aria-label="검색어 지우기" @click="clear">
+      <button
+        v-if="query"
+        type="button"
+        class="search__clear"
+        aria-label="검색어 지우기"
+        @click="clear"
+      >
         <AppIcon name="close" :size="18" />
       </button>
     </div>
@@ -198,7 +204,9 @@ defineExpose({ focus: () => input.value?.focus() })
       <p v-else-if="failed" class="search__status search__status--error">
         검색 중 문제가 발생했어요. 잠시 후 다시 시도해 주세요.
       </p>
-      <p v-else-if="!items.length" class="search__status">일치하는 학교가 없어요. 지역명으로도 검색해 보세요.</p>
+      <p v-else-if="!items.length" class="search__status">
+        일치하는 학교가 없어요. 지역명으로도 검색해 보세요.
+      </p>
     </div>
 
     <p class="sr-only" aria-live="polite">
@@ -221,7 +229,9 @@ defineExpose({ focus: () => input.value?.focus() })
   border-radius: var(--radius-m);
   background: var(--c-surface);
   box-shadow: var(--shadow-s);
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
 }
 .search__field:focus-within {
   border-color: var(--c-brand);

@@ -99,7 +99,10 @@ function goNearby() {
         <h2 id="popular-title" class="sec-title">인기 지역</h2>
         <ul class="chips">
           <li v-for="r in POPULAR_REGIONS" :key="r.label">
-            <RouterLink :to="{ name: 'region', params: { sido: r.sido, sigungu: r.sigungu } }" class="chip">
+            <RouterLink
+              :to="{ name: 'region', params: { sido: r.sido, sigungu: r.sigungu } }"
+              class="chip"
+            >
               {{ r.label }}
             </RouterLink>
           </li>
@@ -134,7 +137,9 @@ function goNearby() {
         <h2 id="region-title" class="sec-title">지역별 바로가기</h2>
         <ul class="sido">
           <li v-for="s in SIDO_LIST" :key="s">
-            <RouterLink :to="{ name: 'region', params: { sido: s } }" class="sido__link">{{ s }}</RouterLink>
+            <RouterLink :to="{ name: 'region', params: { sido: s } }" class="sido__link">{{
+              s
+            }}</RouterLink>
           </li>
         </ul>
       </nav>
@@ -252,7 +257,10 @@ function goNearby() {
   border-radius: 999px;
   background: var(--c-surface);
   font-weight: 600;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    color 0.15s;
 }
 .chip:hover {
   border-color: var(--c-brand);

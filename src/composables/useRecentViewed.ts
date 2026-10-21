@@ -26,7 +26,10 @@ const items = ref<InstitutionSummary[]>(load())
 
 export function useRecentViewed() {
   function add(item: InstitutionSummary) {
-    items.value = [item, ...items.value.filter((i) => !(i.id === item.id && i.kind === item.kind))].slice(0, MAX)
+    items.value = [
+      item,
+      ...items.value.filter((i) => !(i.id === item.id && i.kind === item.kind)),
+    ].slice(0, MAX)
     persist(items.value)
   }
 

@@ -20,7 +20,14 @@ const NAV = [
 
       <!-- 데스크톱 GNB -->
       <nav class="gnb" aria-label="주요 메뉴">
-        <RouterLink v-for="n in NAV" :key="n.to" :to="n.to" class="gnb__link" active-class="is-active" exact-active-class="is-active">
+        <RouterLink
+          v-for="n in NAV"
+          :key="n.to"
+          :to="n.to"
+          class="gnb__link"
+          active-class="is-active"
+          exact-active-class="is-active"
+        >
           {{ n.label }}
         </RouterLink>
       </nav>
@@ -38,7 +45,14 @@ const NAV = [
 
   <!-- 모바일 하단 탭바 -->
   <nav class="tabbar" aria-label="하단 메뉴">
-    <RouterLink v-for="n in NAV" :key="n.to" :to="n.to" class="tabbar__link" active-class="is-active" exact-active-class="is-active">
+    <RouterLink
+      v-for="n in NAV"
+      :key="n.to"
+      :to="n.to"
+      class="tabbar__link"
+      active-class="is-active"
+      exact-active-class="is-active"
+    >
       <AppIcon :name="n.icon" :size="24" />
       <span>{{ n.label }}</span>
     </RouterLink>

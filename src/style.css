@@ -28,8 +28,9 @@
   --tabbar-h: 64px;
   --header-h: 56px;
 
-  --font-sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
-    'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', system-ui, sans-serif;
+  --font-sans:
+    'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
+    'Noto Sans KR', 'Malgun Gothic', system-ui, sans-serif;
 }
 
 /* ── Reset / base ──────────────────────────────── */
