@@ -1,0 +1,122 @@
+/* ── Design tokens ─────────────────────────────── */
+:root {
+  --c-bg: #faf8f4;
+  --c-surface: #ffffff;
+  --c-ink: #1b2430;
+  --c-ink-2: #566170;
+  --c-line: #e7e2d9;
+  --c-brand: #1f7a5c;
+  --c-brand-ink: #ffffff;
+  --c-brand-soft: #e3f3ec;
+  --c-focus: #1d5fd1;
+  --c-danger: #b42318;
+
+  /* 종류별 컬러: 색만으로 구분하지 않도록 항상 텍스트 라벨과 함께 사용 */
+  --c-kg-bg: #ffefcc;
+  --c-kg-ink: #7a4300;
+  --c-el-bg: #dce9ff;
+  --c-el-ink: #153f85;
+
+  --radius-s: 10px;
+  --radius-m: 16px;
+  --radius-l: 24px;
+  --shadow-s: 0 1px 2px rgb(27 36 48 / 6%), 0 2px 8px rgb(27 36 48 / 6%);
+  --shadow-m: 0 8px 28px rgb(27 36 48 / 14%);
+
+  --gutter: 20px;
+  --container: 880px;
+  --tabbar-h: 64px;
+  --header-h: 56px;
+
+  --font-sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+    'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', system-ui, sans-serif;
+}
+
+/* ── Reset / base ──────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + 8px);
+}
+
+body {
+  margin: 0;
+  background: var(--c-bg);
+  color: var(--c-ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+:focus-visible {
+  outline: 3px solid var(--c-focus);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
