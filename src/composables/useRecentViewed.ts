@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import { isInstitutionSummary, type InstitutionSummary } from '@/types/institution'
 
-const KEY = 'recent-institutions:v1'
+const KEY = 'recent-institutions:v2'
 const MAX = 10
 
 function load(): InstitutionSummary[] {
@@ -26,10 +26,7 @@ const items = ref<InstitutionSummary[]>(load())
 
 export function useRecentViewed() {
   function add(item: InstitutionSummary) {
-    items.value = [
-      item,
-      ...items.value.filter((i) => !(i.id === item.id && i.kind === item.kind)),
-    ].slice(0, MAX)
+    items.value = [item, ...items.value.filter((i) => i.id !== item.id)].slice(0, MAX)
     persist(items.value)
   }
 

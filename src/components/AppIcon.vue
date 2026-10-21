@@ -8,17 +8,25 @@ const PATHS = {
   pin: 'M12 21s-6-5.2-6-10a6 6 0 1 1 12 0c0 4.8-6 10-6 10z M12 8.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z',
   arrow: 'M5 12h14 M13 6l6 6-6 6',
   close: 'M6 6l12 12 M18 6L6 18',
+  help: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7 M12 17v.01',
+  share: 'M12 15V3 M8 7l4-4 4 4 M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7',
+  'chevron-down': 'M6 9l6 6 6-6',
+  plus: 'M12 5v14 M5 12h14',
+  check: 'M5 12.5l4.5 4.5L19 7.5',
 } as const
 
-defineProps<{ name: keyof typeof PATHS; size?: number }>()
+withDefaults(defineProps<{ name: keyof typeof PATHS; size?: number; filled?: boolean }>(), {
+  size: 20,
+  filled: false,
+})
 </script>
 
 <template>
   <svg
-    :width="size ?? 20"
-    :height="size ?? 20"
+    :width="size"
+    :height="size"
     viewBox="0 0 24 24"
-    fill="none"
+    :fill="filled ? 'currentColor' : 'none'"
     stroke="currentColor"
     stroke-width="2"
     stroke-linecap="round"

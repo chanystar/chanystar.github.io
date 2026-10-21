@@ -8,33 +8,57 @@ declare module 'vue-router' {
   }
 }
 
-// 홈 외 화면은 구현 전까지 공용 플레이스홀더로 연결 (경로·이름은 확정된 IA 기준)
 const Placeholder = () => import('@/views/PlaceholderView.vue')
 
 export const routes: RouteRecordRaw[] = [
   { path: '/', name: 'home', component: HomeView },
-  { path: '/search', name: 'search', component: Placeholder, meta: { title: '검색 결과' } },
-  { path: '/map', name: 'map', component: Placeholder, meta: { title: '지도로 찾기' } },
-  { path: '/compare', name: 'compare', component: Placeholder, meta: { title: '비교' } },
-  { path: '/favorites', name: 'favorites', component: Placeholder, meta: { title: '찜한 학교' } },
-  { path: '/zone', name: 'zone', component: Placeholder, meta: { title: '통학구역 조회' } },
+  {
+    path: '/search',
+    name: 'search',
+    component: () => import('@/views/SearchView.vue'),
+    meta: { title: '학교 찾기' },
+  },
+  {
+    path: '/compare',
+    name: 'compare',
+    component: () => import('@/views/CompareView.vue'),
+    meta: { title: '비교' },
+  },
+  {
+    path: '/favorites',
+    name: 'favorites',
+    component: () => import('@/views/FavoritesView.vue'),
+    meta: { title: '찜한 학교' },
+  },
   {
     path: '/region/:sido/:sigungu?',
     name: 'region',
-    component: Placeholder,
+    component: () => import('@/views/RegionView.vue'),
     meta: { title: '지역별 학교' },
   },
   {
     path: '/school/:id(\\d+)',
     name: 'school',
-    component: Placeholder,
+    component: () => import('@/views/DetailView.vue'),
     meta: { title: '초등학교 상세' },
   },
   {
     path: '/kindergarten/:id(\\d+)',
     name: 'kindergarten',
-    component: Placeholder,
+    component: () => import('@/views/DetailView.vue'),
     meta: { title: '유치원 상세' },
+  },
+  {
+    path: '/guide/data',
+    name: 'guide-data',
+    component: () => import('@/views/GuideDataView.vue'),
+    meta: { title: '데이터 안내' },
+  },
+  {
+    path: '/report',
+    name: 'report',
+    component: Placeholder,
+    meta: { title: '동네 리포트' },
   },
   {
     path: '/:pathMatch(.*)*',

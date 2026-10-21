@@ -5,7 +5,7 @@ import KindBadge from './KindBadge.vue'
 import { suggest } from '@/api/institutions'
 import type { InstitutionSummary, KindFilter } from '@/types/institution'
 
-const props = defineProps<{ kind: KindFilter }>()
+const props = defineProps<{ kind: KindFilter; initialQuery?: string }>()
 const emit = defineEmits<{
   select: [item: InstitutionSummary]
   submit: [query: string]
@@ -20,7 +20,7 @@ const optionId = (i: number) => `${uid}-opt-${i}`
 const root = useTemplateRef<HTMLElement>('root')
 const input = useTemplateRef<HTMLInputElement>('input')
 
-const query = ref('')
+const query = ref(props.initialQuery ?? '')
 const items = ref<InstitutionSummary[]>([])
 const loading = ref(false)
 const failed = ref(false)

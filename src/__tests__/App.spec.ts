@@ -13,7 +13,7 @@ describe('App', () => {
 
     const wrapper = mount(App, { global: { plugins: [router] } })
 
-    expect(wrapper.find('h1').text()).toContain('한눈에 찾아보세요')
+    expect(wrapper.find('h1').text()).toContain('교육환경을 찾아보세요')
     expect(wrapper.findAll('nav a')).not.toHaveLength(0)
   })
 })

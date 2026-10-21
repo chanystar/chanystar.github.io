@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import AppIcon from '@/components/AppIcon.vue'
-import { APP_NAME } from '@/config'
+import CompareTray from '@/components/CompareTray.vue'
+import { APP_NAME, IS_MOCK } from '@/config'
 
 const NAV = [
   { to: '/', label: '홈', icon: 'home' },
-  { to: '/map', label: '지도', icon: 'map' },
+  { to: '/search', label: '검색', icon: 'search' },
   { to: '/compare', label: '비교', icon: 'compare' },
   { to: '/favorites', label: '찜', icon: 'heart' },
 ] as const
@@ -13,6 +14,10 @@ const NAV = [
 
 <template>
   <a href="#main" class="skip">본문으로 건너뛰기</a>
+
+  <p v-if="IS_MOCK" class="mock" role="note">
+    화면 검토용 가상 데이터입니다. 실제 학교 정보가 아니에요.
+  </p>
 
   <header class="top">
     <div class="container top__inner">
@@ -42,6 +47,8 @@ const NAV = [
   <div id="main" tabindex="-1" class="page">
     <RouterView />
   </div>
+
+  <CompareTray />
 
   <!-- 모바일 하단 탭바 -->
   <nav class="tabbar" aria-label="하단 메뉴">
@@ -73,6 +80,14 @@ const NAV = [
 }
 .skip:focus {
   top: 8px;
+}
+
+.mock {
+  padding: 6px var(--gutter);
+  background: #fff4d6;
+  color: #6b4400;
+  font-size: 13px;
+  text-align: center;
 }
 
 .top {
