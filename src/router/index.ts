@@ -41,13 +41,13 @@ export const routes: RouteRecordRaw[] = [
     name: 'not-found',
     component: Placeholder,
     meta: { title: '페이지를 찾을 수 없어요' },
-  }
+  },
 ]
 
 export const router = createRouter({
   history: createWebHistory(),
   scrollBehavior: (to, _from, saved) => saved ?? (to.hash ? { el: to.hash } : { top: 0 }),
-  routes
+  routes,
 })
 
 router.afterEach((to) => {
